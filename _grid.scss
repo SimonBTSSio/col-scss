@@ -1,0 +1,53 @@
+$container: 1200px;
+$grid-gutter: 15px;
+$md-width: 1200px;
+$lg-width: 600px;
+$col-nb: 12;
+$sm-breakpoint: 1;
+$md-breakpoint: 0;
+$lg-breakpoint: 1;
+
+*{
+    box-sizing: border-box;
+}
+.container{
+    max-width: $container;
+    border: 1px solid black;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+@for $i from 1 through $col-nb {
+    .cols-#{$i}{
+        width: ((100 / $col-nb) * $i) * 1%;
+        padding-left: $grid-gutter;
+        padding-right: $grid-gutter;
+    }
+}
+@media screen and (max-width: $md-width) {
+    .container{
+        max-width: 800px;
+    }
+    @for $i from 1 through $col-nb {
+        .cols-md-#{$i}{
+            width: ((100 / $col-nb) * $i) * 1%;
+            padding-left: $grid-gutter;
+            padding-right: $grid-gutter;
+        }
+    }
+}
+@media screen and (max-width: $lg-width) {
+    .container{
+        max-width: 400px;
+    }
+    @for $i from 1 through $col-nb {
+        .cols-sm-#{$i}{
+            width: ((100 / $col-nb) * $i) * 1%;
+            padding-left: $grid-gutter;
+            padding-right: $grid-gutter;
+        }
+    }
+}
